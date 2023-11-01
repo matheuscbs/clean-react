@@ -1,6 +1,7 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
 import { HttpPostClientSpy } from "../../test/mockHttpClient";
 import Chance from "chance";
+import { mockAuthentication } from "../../../domain/test/mockAuthentication";
 
 const chance = new Chance();
 
@@ -19,10 +20,17 @@ const makeSut = (url: string = chance.url()): SutTypes => {
 };
 
 describe("RemoteAuthentication", () => {
-  test("Should call HttpClient with correct URL", async () => {
+  test("Should call HttpPostClient with correct URL", async () => {
     const url = chance.url();
     const { sut, httpPostClientSpy } = makeSut(url);
-    await sut.auth();
+    await sut.auth(mockAuthentication());
     expect(httpPostClientSpy.url).toBe(url);
+  });
+
+  test("Should call HttpPostClient with correct body", async () => {
+    const { sut, httpPostClientSpy } = makeSut();
+    const authenticationParams = mockAuthentication();
+    await sut.auth(authenticationParams);
+    expect(httpPostClientSpy.body).toEqual(authenticationParams);
   });
 });
