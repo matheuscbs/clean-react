@@ -1,7 +1,7 @@
 import { RemoteAuthentication } from "./remoteAuthentication";
-import { HttpPostClientSpy } from "../../test/mockHttpClient";
 import Chance from "chance";
-import { mockAuthentication } from "../../../domain/test/mockAuthentication";
+import { HttpPostClientSpy } from "@/data/test/mockHttpClient";
+import { mockAuthentication } from "@/domain/test/mockAuthentication";
 
 const chance = new Chance();
 
