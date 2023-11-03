@@ -7,16 +7,21 @@ import { HttpStatusCode } from "@/data/protocols/http/httpResponse";
 import { UnexpectedError } from "@/domain/errors/unexpectedError";
 import { NotFoundError } from "@/domain/errors/notFound";
 import { ServerError } from "@/domain/errors/serverError";
+import { AuthenticationParams } from "@/domain/useCases/authentication";
+import { AccountModel } from "@/domain/models/accountModel";
 
 const chance = new Chance();
 
 type SutTypes = {
   sut: RemoteAuthentication;
-  httpPostClientSpy: HttpPostClientSpy;
+  httpPostClientSpy: HttpPostClientSpy<AuthenticationParams, AccountModel>;
 };
 
 const makeSut = (url: string = chance.url()): SutTypes => {
-  const httpPostClientSpy = new HttpPostClientSpy();
+  const httpPostClientSpy = new HttpPostClientSpy<
+    AuthenticationParams,
+    AccountModel
+  >();
   const sut = new RemoteAuthentication(url, httpPostClientSpy);
   return {
     sut,

@@ -5,11 +5,15 @@ import { InvalidCredentialsError } from "@/domain/errors/invalidCredentialsError
 import { AuthenticationParams } from "@/domain/useCases/authentication";
 import { NotFoundError } from "@/domain/errors/notFound";
 import { ServerError } from "@/domain/errors/serverError";
+import { AccountModel } from "@/domain/models/accountModel";
 
 export class RemoteAuthentication {
   constructor(
     private readonly url: string,
-    private readonly httpPostClient: HttpPostClient
+    private readonly httpPostClient: HttpPostClient<
+      AuthenticationParams,
+      AccountModel
+    >
   ) {}
 
   async auth(params: AuthenticationParams): Promise<void> {
