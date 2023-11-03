@@ -1,6 +1,6 @@
 import Chance from "chance";
-import { AuthenticationParams } from "@/domain/useCases/authentication";
-import { AccountModel } from "../models/accountModel";
+import { AuthenticationParams } from "@/domain/useCases";
+import { AccountModel } from "@/domain/models";
 
 const chance = new Chance();
 

@@ -1,17 +1,16 @@
-import { RemoteAuthentication } from "./remoteAuthentication";
 import Chance from "chance";
-import { HttpPostClientSpy } from "@/data/test/mockHttpClient";
+import { RemoteAuthentication } from ".";
+import { HttpPostClientSpy } from "@/data/test";
+import { HttpStatusCode } from "@/data/protocols/http";
 import {
-  mockAccountModel,
-  mockAuthentication,
-} from "@/domain/test/mockAccount";
-import { InvalidCredentialsError } from "@/domain/errors/invalidCredentialsError";
-import { HttpStatusCode } from "@/data/protocols/http/httpResponse";
-import { UnexpectedError } from "@/domain/errors/unexpectedError";
-import { NotFoundError } from "@/domain/errors/notFound";
-import { ServerError } from "@/domain/errors/serverError";
-import { AuthenticationParams } from "@/domain/useCases/authentication";
-import { AccountModel } from "@/domain/models/accountModel";
+  InvalidCredentialsError,
+  UnexpectedError,
+  NotFoundError,
+  ServerError,
+} from "@/domain/errors";
+import { mockAccountModel, mockAuthentication } from "@/domain/test";
+import { AuthenticationParams } from "@/domain/useCases";
+import { AccountModel } from "@/domain/models";
 
 const chance = new Chance();
 
