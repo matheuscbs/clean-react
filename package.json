@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/chance": "^1.1.5",
     "@types/jest": "^29.5.7",
     "@types/node": "^20.8.10",
@@ -33,5 +34,8 @@
     "ts-jest": "^29.1.1",
     "tsconfig-paths-jest": "^0.0.1",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
   }
 }
