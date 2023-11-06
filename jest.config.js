@@ -5,7 +5,7 @@ module.exports = {
     "!<rootDir>/src/domain/**/*",
   ],
   coverageDirectory: "coverage",
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-environment-jsdom",
   transform: {
     ".+\\.(ts|tsx)$": "ts-jest",
   },
