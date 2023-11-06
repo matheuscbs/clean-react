@@ -3,6 +3,7 @@ module.exports = {
   collectCoverageFrom: [
     "<rootDir>/src/**/*.{ts,tsx}",
     "!<rootDir>/src/domain/**/*",
+    "!**/*.d.ts",
   ],
   coverageDirectory: "coverage",
   testEnvironment: "jest-environment-jsdom",
@@ -11,5 +12,6 @@ module.exports = {
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.(css|scss)$": "identity-obj-proxy",
   },
 };

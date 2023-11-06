@@ -15,6 +15,28 @@ module.exports = {
       "@": path.join(__dirname, "src"),
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        use: [
+          {
+            loader: "ts-loader",
+          },
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader", options: true },
+          { loader: "sass-loader" },
+        ],
+        exclude: /node_modules/,
+      },
+    ],
+  },
   devServer: {
     contentBase: "./public",
     writeToDisk: true,
