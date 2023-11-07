@@ -30,7 +30,7 @@ module.exports = {
         test: /\.scss$/,
         use: [
           { loader: "style-loader" },
-          { loader: "css-loader", options: true },
+          { loader: "css-loader", options: { modules: true } },
           { loader: "sass-loader" },
         ],
         exclude: /node_modules/,
@@ -38,9 +38,13 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: "./public",
-    writeToDisk: true,
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
     historyApiFallback: true,
+    devMiddleware: {
+      writeToDisk: true,
+    },
   },
   externals: {
     react: "React",
