@@ -3,7 +3,7 @@ import Styles from "./login.styles.scss";
 import Input from "@/presentation/components/input/input";
 import Header from "@/presentation/components/loginHeader/loginHeader";
 import Footer from "@/presentation/components/footer/footer";
-import Spinner from "@/presentation/components/spinner/spinner";
+import FormStatus from "@/presentation/components/formStatus/formStatus";
 
 const Login: React.FC = () => {
   return (
@@ -17,10 +17,7 @@ const Login: React.FC = () => {
           Login
         </button>
         <span className={Styles.link}>Criar Conta</span>
-        <div className={Styles.errorWrap}>
-          <Spinner className={Styles.spinner} />
-          <span className={Styles.error}>Erro</span>
-        </div>
+        <FormStatus />
       </form>
       <Footer />
     </div>
