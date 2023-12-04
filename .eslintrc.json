@@ -27,7 +27,8 @@
       {
         "selector": "variableLike",
         "format": [
-          "camelCase"
+          "camelCase",
+          "PascalCase"
         ]
       }
     ],

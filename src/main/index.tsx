@@ -1,5 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Login from "@/presentation/pages/login/login";
+import { createRoot } from "react-dom/client";
+import { Login } from "@/presentation/pages";
 
-ReactDOM.render(<Login />, document.getElementById("main"));
+const container = document.getElementById("main");
+const root = createRoot(container);
+
+root.render(<Login />);
